@@ -12,6 +12,9 @@ from helpers import apology, login_required, lookup, usd
 # Configure application
 app = Flask(__name__)
 
+if __name__ == '__main__':
+    app.run(debug=False, host='0.0.0.0')
+    
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
