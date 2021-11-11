@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Transaction</th>
+                <th>Company</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trans in transactions %}
+            <tr>
+                <td>{{ trans.type }}</td>
+                <td>{{ trans.stock_name }}</td>
+                <td>{{ trans.symbol }}</td>
+                <td>{{ trans.shares_number }}</td>
+                <td>{{ trans.price }}</td>
+                <td>{{ trans.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

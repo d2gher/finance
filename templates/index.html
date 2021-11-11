@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Company</th>
+                <th>Number of shares owned</th>
+                <th>Current stock price</th>
+                <th>Total value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks_owned %}
+            <tr>
+                <td>{{ stock.get("stock_name") }}</td>
+                <td>{{ stock.get("shares_number") }}</td>
+                <td>{{ prices.get(stock.get("symbol")).priceUSD }}</td>
+                <td>{{ prices.get(stock.get("symbol")).total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Cash on hand</td>
+                <td>{{ cash }}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>{{ total}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

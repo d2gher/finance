@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form #loginForm="ngForm" action="/cash" method="post">
+        <div class="form-group">
+            <input class="form-control" name="cash" placeholder="cash amount" type="number" min="1" required>
+        </div>
+        <button class="btn btn-primary" [disabled]="loginForm.form.invalid" type="submit"> Add </button>
+    </form>
+{% endblock %}
